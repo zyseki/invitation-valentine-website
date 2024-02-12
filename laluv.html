@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <img id="valentineImg" src="pretty please.gif" alt="Pretty Please GIF" width="200" height="200">
+        <h2 class="question">Can you be my Valentine? pleasee pleasee pretty pleasee?</h2>
+        <div class="btn-group">
+            <button class="yes-btn">Yes</button>
+            <button class="no-btn">No</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const question = document.querySelector('.question');
+            const yesBtn = document.querySelector('.yes-btn');
+            const valentineImg = document.getElementById('valentineImg');
+
+            yesBtn.addEventListener('click', () => {
+                question.innerHTML = 'YEEYYYYY ILOVEYOUUU MWAAAAMWAAMWAAA 😄🥰😍😘😚💜💜💜';
+                valentineImg.src = 'kiss.gif';
+                valentineImg.alt = 'Kiss GIF';
+            });
+
+            const noBtn = document.querySelector('.no-btn');
+            noBtn.addEventListener('mouseover', () => {
+                const wrapper = document.querySelector('.wrapper');
+                const wrapperRect = wrapper.getBoundingClientRect();
+                const noBtnRect = noBtn.getBoundingClientRect();
+                const i = Math.floor(Math.random() * (wrapperRect.width - noBtnRect.width)) + 1;
+                const j = Math.floor(Math.random() * (wrapperRect.height - noBtnRect.height)) + 1;
+
+                noBtn.style.position = 'absolute'; // Set button position to absolute
+                noBtn.style.left = i + 'px';
+                noBtn.style.top = j + 'px';
+            });
+        });
+    </script>
+</body>
+
+</html>
